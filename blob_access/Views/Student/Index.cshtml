@@ -1,0 +1,30 @@
+﻿@model blob_access.Models.Student
+
+@{
+    ViewBag.Title = "Student Entry";
+}
+
+<h2>Enter Student Details</h2>
+
+<form asp-controller="Student" asp-action="Save" method="post">
+    <div>
+        <label>Name:</label>
+        <input type="text" name="Name" required />
+    </div>
+    <div>
+        <label>Roll Number:</label>
+        <input type="number" name="RollNumber" required />
+    </div>
+    <div>
+        <label>Total Marks:</label>
+        <input type="number" name="TotalMarks" required />
+    </div>
+    <button type="submit">Save</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <p style="color:green">@ViewBag.Message</p>
+}
+
+<a href="/Student/ViewStudents">View Stored Students</a>

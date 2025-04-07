@@ -1,0 +1,40 @@
+﻿@model List<blob_access.Models.Student>
+
+@{
+    ViewBag.Title = "Student List";
+}
+
+<h2>Stored Student Records</h2>
+
+@if (Model.Count > 0)
+{
+    <table border="1" cellpadding="5">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roll Number</th>
+                <th>Total Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.Name</td>
+                    <td>@student.RollNumber</td>
+                    <td>@student.TotalMarks</td>
+                </tr>
+            <td>
+                <a href="@Url.Action("Edit", "Student", new { id = student.RollNumber })">Edit</a>
+            </td>
+
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No student data found.</p>
+}
+
+<a href="/Student/Index">Back to Entry Form</a>

@@ -1,0 +1,25 @@
+﻿@model blob_access.Models.Student
+
+@{
+    ViewBag.Title = "Edit Student";
+}
+
+<h2>Edit Student</h2>
+
+<form asp-controller="Student" asp-action="Edit" method="post">
+    <div>
+        <label>Name:</label>
+        <input type="text" name="Name" value="@Model.Name" required />
+    </div>
+    <div>
+        <label>Roll Number:</label>
+        <input type="number" name="RollNumber" value="@Model.RollNumber" readonly />
+    </div>
+    <div>
+        <label>Total Marks:</label>
+        <input type="number" name="TotalMarks" value="@Model.TotalMarks" required />
+    </div>
+    <button type="submit">Update</button>
+</form>
+
+<a href="/Student/ViewStudents">Back to List</a>
